@@ -3,14 +3,13 @@ package com.example.myapplication1149
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,13 +26,20 @@ class MainActivity : AppCompatActivity() {
         mainCourseText = findViewById(R.id.tvMainCourse)
         sideDishText = findViewById(R.id.tvSideDish)
 
-        // 明確註冊並指定泛型
+        // 主餐選擇結果
         mainCourseLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val main = result.data?.getStringExtra("mainCourse") ?: ""
-                mainCourseText.text = "主餐：$main"
+                val mainDishes = result.data?.getStringArrayListExtra("mainCourse") ?: arrayListOf()
+                val mainText = if (mainDishes.isNotEmpty()) {
+                    "主餐：" + mainDishes.joinToString("、")
+                } else {
+                    "主餐：無"
+                }
+                Log.d("MainCourseActivity", "主餐：$mainText")
+
+                mainCourseText.text = mainText
             }
         }
 
@@ -41,8 +47,29 @@ class MainActivity : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()
         ) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val side = result.data?.getStringExtra("sideDish") ?: ""
-                sideDishText.text = "副餐：$side"
+                val sideDishes = result.data?.getStringArrayListExtra("sideDishes") ?: arrayListOf()
+                val sideText = if (sideDishes.isNotEmpty()) {
+                    "副餐：" + sideDishes.joinToString("、")
+                } else {
+                    "副餐：無"
+                }
+                sideDishText.text = sideText
+            }
+        }
+
+
+        // 副餐多選結果
+        sideDishLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val sideDishes = result.data?.getStringArrayListExtra("sideDishes") ?: arrayListOf()
+                val sideText = if (sideDishes.isNotEmpty()) {
+                    "副餐：" + sideDishes.joinToString("、")
+                } else {
+                    "副餐：無"
+                }
+                sideDishText.text = sideText
             }
         }
 

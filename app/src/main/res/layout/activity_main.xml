@@ -1,45 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FAFAFA"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvMainCourse"
-        android:text="主餐：尚未選擇"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:id="@+id/tvSideDish"
-        android:text="副餐：尚未選擇"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/btnMainCourse"
-        android:text="點主餐"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnSideDish"
-        android:text="點副餐"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="🍕pizza點餐🍕"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnStoreInfo"
-        android:text="店家資訊"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        <!-- 主副餐顯示 -->
+        <TextView
+            android:id="@+id/tvMainCourse"
+            android:text="主餐：尚未選擇"
+            android:textSize="18sp"
+            android:textColor="#444444"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <TextView
+            android:id="@+id/tvSideDish"
+            android:text="副餐：尚未選擇"
+            android:textSize="18sp"
+            android:textColor="#444444"
+            android:layout_marginBottom="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- 功能按鈕 -->
+        <Button
+            android:id="@+id/btnMainCourse"
+            android:text="點主餐"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnSideDish"
+            android:text="點副餐"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/btnStoreInfo"
+            android:text="店家資訊"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"/>
+    </LinearLayout>
+</ScrollView>

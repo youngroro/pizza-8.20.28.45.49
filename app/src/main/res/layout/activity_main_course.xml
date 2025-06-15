@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:orientation="vertical"
     android:padding="16dp"
@@ -7,14 +8,26 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="請選擇主餐"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
+        android:layout_width="430dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        android:text="請選擇主餐"
+        android:textSize="20sp" />
 
     <ListView
         android:id="@+id/listViewMainCourse"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/btnConfirmMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="確認選擇"
+        android:layout_marginTop="16dp" />
+
+
 </LinearLayout>

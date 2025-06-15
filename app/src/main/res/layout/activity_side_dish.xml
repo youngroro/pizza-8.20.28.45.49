@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
@@ -11,10 +9,20 @@
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center_horizontal"/>
 
     <ListView
         android:id="@+id/listViewSideDish"
+        android:choiceMode="multipleChoice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:text="確認選擇"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 </LinearLayout>
